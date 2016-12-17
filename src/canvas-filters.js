@@ -1,7 +1,11 @@
 // Grayscale algorithms
 const grayscaleAlgorithms = [
-    'average', 'desaturation', 'decomposition', 'luma', 'luma-601', 'luma-709',
-    'luma-240', 'red-chanel', 'green-chanel', 'blue-chanel', 'none'
+    'none',
+    'average',
+    'desaturation',
+    'decomposition-min', 'decomposition-max',
+    'luma', 'luma-601', 'luma-709', 'luma-240',
+    'red-chanel', 'green-chanel', 'blue-chanel'
 ]
 
 // Trucate color value in the 0-255 range
