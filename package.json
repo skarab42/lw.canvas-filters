@@ -4,6 +4,7 @@
   "description": "Canvas filters for LaserWeb",
   "main": "./dist/lw.canvas-filters.js",
   "scripts": {
+    "build": "npm run build-dev && npm run build-prod",
     "build-prod": "webpack -p --progress --colors",
     "build-dev": "webpack --progress --colors"
   },
