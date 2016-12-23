@@ -14,6 +14,14 @@ function color(color) {
 }
 
 // Filters ...
+function invertColor(data, i, value) {
+    if (value) {
+        data[i]     = color(255 - data[i])
+        data[i + 1] = color(255 - data[i + 1])
+        data[i + 2] = color(255 - data[i + 2])
+    }
+}
+
 function brightness(data, i, value) {
     if (value !== undefined) {
         data[i]     = color(data[i]     + value)
@@ -126,7 +134,8 @@ function canvasFilters(canvas, settings) {
         contrast    : 0,      // Image contrast [-255 to +255]
         gamma       : 0,      // Image gamma correction [0.01 to 7.99]
         grayscale   : 'none', // Graysale algorithm [average, luma, luma-601, luma-709, luma-240, desaturation, decomposition-[min|max], [red|green|blue]-chanel]
-        shadesOfGray: 256     // Number of shades of gray [2-256]
+        shadesOfGray: 256,    // Number of shades of gray [2-256]
+        invertColor : false   // Invert color...
     }, settings || {})
 
     // Get canvas 2d context
@@ -169,6 +178,7 @@ function canvasFilters(canvas, settings) {
     // For each pixel
     for (let i = 0, il = data.length; i < il; i += 4) {
         // Apply filters
+        invertColor(data, i, settings.invertColor)
         brightness(data, i, brightnessOffset)
         contrast(data, i, contrastFactor)
         gamma(data, i, gammaCorrection)
