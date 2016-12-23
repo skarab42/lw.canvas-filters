@@ -1,6 +1,6 @@
 {
   "name": "lw.canvas-filters",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Canvas filters for LaserWeb",
   "main": "./dist/lw.canvas-filters.js",
   "scripts": {
